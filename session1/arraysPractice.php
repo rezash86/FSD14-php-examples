@@ -15,6 +15,7 @@ print_r($colors);
 
 //remove the element from begining
 $removed_color = array_shift($colors);
+print_r("removed color -> " . $removed_color. "\n");
 print_r($colors);
 
 //combine arrays
