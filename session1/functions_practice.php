@@ -8,6 +8,18 @@
         print_r(square($n));
     }
 
+    function isEven($n){
+        return $n % 2 === 0;
+    }
+
+    function checkIsEven($n){
+        if (isEven($n)){
+            echo 'It is even';
+        }
+        else{
+            echo 'It is not even';
+        }
+    }
 
     echo printSquare(4);
     echo "\n";
@@ -15,4 +27,5 @@
     print_r($result);
 
     //create a function here to check if it is even
+    
 ?>
