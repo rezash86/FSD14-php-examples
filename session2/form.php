@@ -1,16 +1,47 @@
 <?php
 
+    $errors = validate();
+    
+    if(!empty($errors)){
+        foreach($errors as $err){
+            echo "$err";
+            echo "<br>";
+        }
+    }
     //handle GET DATA
     if(!empty($_GET['search'])){
         echo "Search Term => " . htmlspecialchars($_GET['search'] ?? '');
         echo "<br>";
     }
-
+    
     //handle POST DATA
-    if(!empty($_POST['userName']) && !empty($_POST['city']) && !empty($_POST['city'] )){
-        echo "Username :". htmlspecialchars($_POST['userName']) . " and city : " . htmlspecialchars($_POST['city']);
+    if(!empty($_POST['userName']) && !empty($_POST['city']) && !empty($_POST['address'] )){
+        echo "Username :". htmlspecialchars($_POST['userName']) . " and city : " . htmlspecialchars($_POST['address']);
     }
 
+    function validate(){
+        $form_errors = [];
+        if($_SERVER["REQUEST_METHOD"] == "GET"){
+            if(empty($_GET['search'])){
+                $form_errors[] = "Search Field is requeired"; // I am adding an error message to the array => appending
+                // array_push($form_errors, "Search Field is requeired");
+            }
+        }
+
+        if($_SERVER["REQUEST_METHOD"] == "POST"){
+            if(empty($_GET['userName'])){
+                    $form_errors[] = "username Field is requeired"; // I am adding an error message to the array => appending
+            }
+            if(empty($_GET['city'])){
+                    $form_errors[] = "city Field is requeired"; // I am adding an error message to the array => appending
+            }
+            if(empty($_GET['address'])){
+                    $form_errors[] = "address Field is requeired"; // I am adding an error message to the array => appending
+            }
+        }
+        return $form_errors;
+        
+    }
 
 ?>
 
@@ -30,6 +61,29 @@
         <input type="text" name="search" placeholder="Type Something">
         <input type="submit" value="Search">
     </form>
+
+    <!-- adding some explnation -->
+    <?php if(!empty($errors)) { ?>
+        <!-- HTML HERE -->
+    <?php } ?>
+
+    <?php if(!empty($errors)): ?>
+        <div>
+            <ul>
+
+                <?php foreach($errors as $err) { ?>
+                    <!--HTML HERE -->
+                <?php } ?>
+
+                <?php foreach($errors as $err): ?>
+                    <li>
+                        <?php echo $err?> 
+                        <!-- <?= $err ?>  -->
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif; ?>
 
 
     <!-- Form for POST -->

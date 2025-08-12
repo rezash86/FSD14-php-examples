@@ -1,0 +1,7 @@
+{
+  "name": "jac/fsd14",
+  "description": "this is a test",
+  "require": {
+    "monolog/monolog": "^2.0"
+  }
+}
