@@ -16,10 +16,15 @@ $checkStudent=($isStudent ? "yes" : "no");
 print_r($checkStudent);
 echo "\n";
 echo "Is Student :" . ($isStudent ? "yes" : "no") . "\n"; // I use an itenary conditon
+// echo "Is Student : ($isStudent ? "yes" : "no") \n"; // I use an itenary conditon
+
 
 $checkStudent=($isStudent ? "is" : "isn't");
 
 print_r($name." is ".$age." yrs old and has ".$height. " ft and ". $checkStudent. " a student");
+echo "\n";
+print_r("$name is $age yrs old and has $height ft and $checkStudent  a student");
+
 
 // please make a sentence with all of the information you put as the values.
 // e.x -> Alice is 3o yrs old and has 1.75 height and is a student
