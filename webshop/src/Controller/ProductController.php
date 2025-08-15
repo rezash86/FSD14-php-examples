@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Repository\ProductRepositoryInterface;
+use App\Domain\Repository\ProductRepositoryInterface;
 
 class ProductController{
     
