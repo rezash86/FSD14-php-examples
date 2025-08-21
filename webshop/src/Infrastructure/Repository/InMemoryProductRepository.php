@@ -22,6 +22,13 @@ class InMemoryProductRepository implements ProductRepositoryInterface{
     public function all() : array {
         return $this->products;
     }
+
+    public function find(int $id){
+        foreach($this->products as $pr){
+            if($pr->id() ===$id ) return $pr;
+        }
+        return null;
+    }
 }
 
 ?>
